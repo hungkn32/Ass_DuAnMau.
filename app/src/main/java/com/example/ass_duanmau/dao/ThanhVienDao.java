@@ -31,16 +31,15 @@ public class ThanhVienDao {
         return list;
     }
 
-    public boolean insert(String tensach, int tienthue, int maloai) {
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
+    public boolean insert(String hoten, String namsinh){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("TenSach", tensach);
-        values.put("GiaThue", tienthue);
-        values.put("MaLoai", maloai);
-        long check = db.insert("Sach", null, values);
-        if (check == -1) {
+        values.put("hoTen",hoten);
+        values.put("namSinh",namsinh);
+        long check = db.insert("THANHVIEN",null,values);
+        if(check == -1){
             return false;
-        } else {
+        }else{
             return true;
         }
     }

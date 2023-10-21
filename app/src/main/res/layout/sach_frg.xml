@@ -1,26 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#C5CFCE"
     android:layout_height="match_parent">
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rcvsach">
 
-    </androidx.recyclerview.widget.RecyclerView>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fltaddsach"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="37dp"
-        android:src="@drawable/baseline_add_24"
-        android:layout_marginRight="37dp"
-        android:layout_marginBottom="90dp" />
+  <EditText
+      android:id="@+id/edSearch"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="10dp"
+      android:layout_marginBottom="100dp" />
 
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/rcvsach"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentBottom="true"
+      android:layout_marginStart="3dp"
+      android:layout_marginTop="80dp"
+      android:layout_marginBottom="-1dp" />
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/fltaddsach"
+      android:layout_width="227dp"
+      android:layout_height="114dp"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:layout_alignParentBottom="true"
+      android:layout_marginRight="37dp"
+      android:layout_marginBottom="90dp"
+      android:src="@drawable/baseline_add_24" />
 
 </RelativeLayout>

@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thêm Sách"
+        android:text="Thêm Thành Viên"
         android:textSize="30dp"
         android:textStyle="bold"/>
 
@@ -17,12 +17,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="10dp"
-        android:id="@+id/in_addTenS">
+        android:id="@+id/in_addTenTV">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nhập tên sách"
-            android:id="@+id/ed_addTenS"/>
+            android:hint="Nhập tên thành viên"
+            android:id="@+id/ed_addTenTV"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -30,33 +30,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="10dp"
-        android:id="@+id/in_addGiaThue">
+        android:id="@+id/in_addNamSinh">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nhập giá thuê"
-            android:id="@+id/ed_addGiaThue"/>
+            android:hint="Nhập năm sinh"
+            android:id="@+id/ed_addNamSinh"/>
     </com.google.android.material.textfield.TextInputLayout>
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="10dp"
-        android:id="@+id/spnSach"/>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="10dp"
-        android:id="@+id/in_addnsx11">
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nhập năm Xuất Bản"
-            android:id="@+id/ed_addnsx"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,7 +53,7 @@
             android:layout_marginRight="10dp"
             android:backgroundTint="#4CAF50"
             android:textSize="17dp"
-            android:id="@+id/S_add"/>
+            android:id="@+id/TV_add"/>
         <Button
             android:layout_width="170dp"
             android:layout_height="wrap_content"
@@ -81,7 +61,7 @@
             android:textStyle="bold"
             android:backgroundTint="#555B60"
             android:textSize="17dp"
-            android:id="@+id/S_Cancel"/>
+            android:id="@+id/TV_Cancel"/>
     </LinearLayout>
 
 </LinearLayout>

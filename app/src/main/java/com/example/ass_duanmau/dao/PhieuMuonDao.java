@@ -15,7 +15,6 @@ public class PhieuMuonDao {
 
     public PhieuMuonDao(Context context) {
         dbHelper = new DBHelper(context);
-
     }
 
     public ArrayList<PhieuMuon> getDSPhieuMuon(){
@@ -33,13 +32,17 @@ public class PhieuMuonDao {
         }
         return list;
     }
-    public boolean insert(String tensach, int tienthue, int maloai){
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
+    public boolean insert(PhieuMuon pm){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("TenSach",tensach);
-        values.put("GiaThue",tienthue);
-        values.put("MaLoai",maloai);
-        long check = db.insert("Sach",null,values);
+        values.put("MaTT",pm.getMaTT());
+        values.put("MaTV", pm.getMaTV());
+        values.put("MaSach",pm.getMaSach());
+        values.put("TienThue",pm.getTienThue());
+        values.put("TraSach",pm.getTrangThai());
+        values.put("Ngay",pm.getNgayThue());
+
+        long check = db.insert("PhieuMuon",null,values);
         if(check == -1){
             return false;
         }else{
@@ -47,13 +50,17 @@ public class PhieuMuonDao {
         }
     }
 
-    public boolean update(int masach, String tensach, int giathue, int maloai){
+    public boolean update(PhieuMuon pm){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("TenSach",tensach);
-        values.put("GiaThue",giathue);
-        values.put("MaLoai",maloai);
-        long check = db.update("Sach",values,"MaSach = ?", new String[]{String.valueOf(masach)});
+        values.put("maTT",pm.getMaTT());
+        values.put("maTV", pm.getMaTV());
+        values.put("maSach",pm.getMaSach());
+        values.put("tienThue",pm.getTienThue());
+        values.put("traSach",pm.getTrangThai());
+        values.put("ngay",pm.getNgayThue());
+
+        long check = db.update("PHIEUMUON",values,"maPM = ?",new String[]{String.valueOf(pm.getMaPM())});
         if(check == -1){
             return false;
         }else{
@@ -61,18 +68,13 @@ public class PhieuMuonDao {
         }
     }
 
-    public int delete(int masach) {
+    public boolean delete(int id){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from PhieuMuon where MaSach = ?", new String[]{String.valueOf(masach)});
-        if (cursor.getCount() != 0) {
-            return -1;
-        }
-
-        long check = db.delete("Sach", "Masach = ?", new String[]{String.valueOf(masach)});
-        if (check == -1) {
-            return 0;
-        } else {
-            return 1;
+        long check = db.delete("PhieuMuon","MaPM = ?",new String[]{String.valueOf(id)});
+        if(check == -1){
+            return false;
+        }else{
+            return true;
         }
     }
     }

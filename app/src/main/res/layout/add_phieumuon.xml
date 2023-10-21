@@ -8,9 +8,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Phiếu Mượn"
+        android:text="Thêm Phiếu Mượn"
         android:textSize="30dp"
-        android:layout_marginBottom="10dp"
         android:textStyle="bold"/>
 
     <LinearLayout
@@ -55,25 +54,6 @@
             android:id="@+id/spnSach"/>
     </LinearLayout>
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:text="Đã trả sách"
-        android:layout_marginTop="50dp"
-        android:id="@+id/chkcheck"/>
-
-    <ImageButton
-        android:id="@+id/btndelete"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="-40dp"
-        android:backgroundTint="#FFF"
-        android:src="@drawable/baseline_delete_24">
-
-    </ImageButton>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -84,12 +64,12 @@
         <Button
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:text="Update"
+            android:text="ADD"
             android:textStyle="bold"
             android:layout_marginRight="10dp"
             android:backgroundTint="#4CAF50"
             android:textSize="17dp"
-            android:id="@+id/PM_update"/>
+            android:id="@+id/PM_add"/>
         <Button
             android:layout_width="170dp"
             android:layout_height="wrap_content"

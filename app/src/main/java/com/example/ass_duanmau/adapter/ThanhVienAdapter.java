@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,6 +42,7 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienAdapter.View
         holder.txtns.setText(list.get(position).getNamSinh());
 
 
+
     }
 
     @Override
@@ -50,12 +52,14 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienAdapter.View
 
     public class ViewHoler extends RecyclerView.ViewHolder{
             TextView txtmatv,txttetv,txtns;
+            ImageButton imgbuton;
 
         public ViewHoler(@NonNull View itemView) {
             super(itemView);
             txtmatv = itemView.findViewById(R.id.txtmatv1);
             txttetv = itemView.findViewById(R.id.hoten1);
             txtns = itemView.findViewById(R.id.txtnamsinh1);
+            imgbuton = itemView.findViewById(R.id.imgdletetl);
 
         }
     }

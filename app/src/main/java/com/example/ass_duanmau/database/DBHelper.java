@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String dbName = "PNLib";
-    public static final  int dbverdion = 4;
+    public static final  int dbverdion = 7;
     public DBHelper(Context context) {
         super(context, dbName, null, dbverdion);
     }
@@ -29,7 +29,8 @@ public class DBHelper extends SQLiteOpenHelper {
         String tb_sach = "Create Table SACH(maSach integer primary key autoincrement," +
                 "tenSach text," +
                 "tienThue integer," +
-                "maLoai integer references LOAISACH(maLoai))";
+                "maLoai integer references LOAISACH(maLoai)," +
+                "namXuatBan integer)";
         db.execSQL(tb_sach);
 
         String tb_phieumuon = "Create table PHIEUMUON(maPM integer primary key autoincrement," +
@@ -43,11 +44,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
         db.execSQL("INSERT INTO LOAISACH VALUES(1,'Thiếu Nhi'),(2,'Tình Cảm'),(3,'Giáo Khoa'),(4,'Tham Khảo')");
-        db.execSQL("INSERT INTO SACH Values(1,'Ba Con Cừu',3000,1),(2,'Anh Và Em',4000,2),(3,'Lập Trình Android',1000,3),(4,'Sách Giải Toán',5000,4)");
+        db.execSQL("INSERT INTO SACH Values(1,'Ba Con Cừu',3000,1,2001),(2,'Anh Và Em',4000,2,2019),(3,'Lập Trình Android',1000,3,2004),(4,'Sách Giải Toán',5000,4,2003)");
         db.execSQL("INSERT INTO THUTHU values(1,'admin','admin'),(2,'hung','123ab'),(3,'ab','cd')");
         db.execSQL("INSERT INTO THANHVIEN VALUES (1,'Kiều Ngọc Hưng','2004'),(2,'Nguyễn Ngọc Hoàng','2006')");
         //trả sách: 1: đã trả - 0: chưa trả
-        db.execSQL("INSERT INTO PHIEUMUON VALUES (1,1,1,1, '19/03/2022', 1, 2500),(2,2,2,3, '19/03/2022', 0, 2000),(3,3,3, 1, '19/03/2022', 1, 2000)");
+        db.execSQL("INSERT INTO PHIEUMUON VALUES (1,1,1,1, '19/03/2022', 1, 2500),(2,2,2,3, '19/03/2022',1,2000),(3,3,3, 1, '19/03/2022', 1, 2000)");
     }
 
     @Override

@@ -40,7 +40,7 @@ public class MainActivity2 extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navlayout);
         setSupportActionBar(toolbar);
-//        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,new PhieuMuonFrg()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,new PhieuMuonFrg()).commit();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();

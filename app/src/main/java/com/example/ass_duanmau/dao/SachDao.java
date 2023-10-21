@@ -19,22 +19,22 @@ public class SachDao {
     public ArrayList<Sach> getSachAll(){
         ArrayList<Sach> list = new ArrayList();
         SQLiteDatabase  database = dbHelper.getReadableDatabase();
-        Cursor cursor = database.rawQuery("select sc.maSach, sc.tenSach, sc.tienThue, ls.maLoai, ls.tenLoai from SACH sc, LOAISACH ls where sc.maLoai = ls.maLoai",null);
+        Cursor cursor = database.rawQuery("select sc.maSach, sc.tenSach, sc.tienThue, ls.maLoai, ls.tenLoai , sc.namXuatBan from SACH sc, LOAISACH ls where sc.maLoai = ls.maLoai",null);
         if (cursor.getCount()!=0){
             cursor.moveToFirst();
             do {
-                list.add(new Sach(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3),cursor.getString(4)));
+                list.add(new Sach(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3),cursor.getString(4),cursor.getInt(5)));
             }while (cursor.moveToNext());
         }
         return list;
     }
-    public boolean insert(String tensach, int tienthue, int maloai){
+    public boolean insert(String tensach, int tienthue,int namXB){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         ContentValues values = new ContentValues();
-        values.put("TenSach",tensach);
-        values.put("GiaThue",tienthue);
-        values.put("MaLoai",maloai);
-        long check = db.insert("Sach",null,values);
+        values.put("tenSach",tensach);
+        values.put("tienThue",tienthue);
+        values.put("namXuatBan",namXB);
+        long check = db.insert("SACH",null,values);
         if(check == -1){
             return false;
         }else{
@@ -42,13 +42,14 @@ public class SachDao {
         }
     }
 
-    public boolean update(int masach, String tensach, int giathue, int maloai){
+    public boolean update(int masach, String tensach, int giathue, int maloai,int namXB){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("TenSach",tensach);
-        values.put("GiaThue",giathue);
-        values.put("MaLoai",maloai);
-        long check = db.update("Sach",values,"MaSach = ?", new String[]{String.valueOf(masach)});
+        values.put("tenSach",tensach);
+        values.put("tienThue",giathue);
+        values.put("maLoai",maloai);
+        values.put("namXuatBan",namXB);
+        long check = db.update("SACH",values,"maSach = ?", new String[]{String.valueOf(masach)});
         if(check == -1){
             return false;
         }else{
@@ -58,12 +59,12 @@ public class SachDao {
 
     public int delete(int masach) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from PhieuMuon where MaSach = ?", new String[]{String.valueOf(masach)});
+        Cursor cursor = db.rawQuery("select * from PHIEUMUON where maSach = ?", new String[]{String.valueOf(masach)});
         if (cursor.getCount() != 0) {
             return -1;
         }
 
-        long check = db.delete("Sach", "Masach = ?", new String[]{String.valueOf(masach)});
+        long check = db.delete("SACH", "maSach = ?", new String[]{String.valueOf(masach)});
         if (check == -1) {
             return 0;
         } else {

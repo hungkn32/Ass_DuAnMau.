@@ -77,8 +77,18 @@
                 android:layout_marginLeft="5dp"
                 />
 
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_marginLeft="500px"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/imgelete."
+                android:src="@drawable/baseline_delete_24"
+                android:layout_height="50dp">
 
+            </ImageButton>
         </LinearLayout>
+
+
     </LinearLayout>
 
 
